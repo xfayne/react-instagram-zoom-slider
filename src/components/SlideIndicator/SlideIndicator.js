@@ -23,7 +23,7 @@ export default function SlideIndicator({
     }
   }, [])
 
-  const transitions = useTransition(isVisible, null, {
+  const transitions = useTransition(isVisible,{
     from: { opacity: 1 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -35,14 +35,13 @@ export default function SlideIndicator({
 
   return (
     <>
-      {transitions.map(
-        ({ item, key, props }) =>
+      {transitions ({ item, key, props }) =>
           item && (
             <AnimatedSlideIndicator key={key} inFront={inFront} style={{ ...props }}>
               {currentSlide + 1}/{totalSlides}
             </AnimatedSlideIndicator>
           )
-      )}
+      }
     </>
   )
 }
