@@ -32,15 +32,14 @@ export default function SlideIndicator({
   if (totalSlides < 2) {
     return null
   }
-
+//test
   return (
     <>
-      {transitions ({ item, key, props }) =>
-          item && (
+      {transitions((props, item, key) => item && 
             <AnimatedSlideIndicator key={key} inFront={inFront} style={{ ...props }}>
               {currentSlide + 1}/{totalSlides}
             </AnimatedSlideIndicator>
-          )
+      )
       }
     </>
   )
